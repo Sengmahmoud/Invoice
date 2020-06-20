@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Innoivce.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<hr />
+@Html.ActionLink("New Product", "New" , new { @class="btn btn-primary" })
+
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QunatityInStore)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Store.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QunatityInStore)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Store.Title)
+        </td>
+       
+    </tr>
+}
+
+</table>

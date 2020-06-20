@@ -1,0 +1,50 @@
+﻿@model Innoivce.ViewModels.InvoiceViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div>
+    @using (Html.BeginForm("New", "Invoice", FormMethod.Post, new { @enctype = "multipart/form-data", @id = "myForm1", @role = "form" }))
+    {
+        <input type="hidden" name="Date" value="@DateTime.Now" />
+        <button type="submit" class="btn btn-success">New InVoice</button>
+
+    }
+</div>
+<hr />
+<hr />
+
+<table class="table">
+    <tr>
+        <th>@Model.Innvoice.Id</th>
+        <th>@Model.Innvoice.Date</th>
+        <th>Action</th>
+    </tr>
+
+
+
+
+    @foreach (var item in Model.Innvoices)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(itemmodel => item.Id)
+
+    </td>
+    <td>
+        @Html.DisplayFor(itemmodel => item.Date)
+    </td>
+    <td>
+        @Html.ActionLink("View", "AddProductToInnvoice", new {  id=item.Id  } , new { @class = "btn btn-primary" })
+       
+    </td>
+</tr>
+
+      
+    }
+
+</table>
